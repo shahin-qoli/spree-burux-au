@@ -21,7 +21,7 @@ Spree::Core::Engine.add_routes do
     put '/password/change' => 'user_passwords#update', :as => :update_password
     get '/confirm' => 'user_confirmations#show', :as => :confirmation
   end
-
+  post 'users/send_otp'
   if Spree::Core::Engine.frontend_available?
     resources :users, only: [:edit, :update]
     get '/checkout/registration' => 'checkout#registration', :as => :checkout_registration
