@@ -37,7 +37,7 @@
     <%= form_for Spree.user_class.new, :as => :spree_user, :url => users_send_otp_path do |f| %>
         <div id="password-credentials">
         <div class="form-group">
-          <%= f.text_field :mobile_number, class: 'form-control', tabindex: 1, placeholder: Spree.t(:mobile_number) %>
+          <%= f.text_field :mobile_number, class: 'form-control', tabindex: 1  %>
         </div>
       </div>
         <div class="form-group">
