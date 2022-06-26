@@ -1,13 +1,15 @@
 module Spree
   class User < Spree::Base
+    devise :two_factor_authenticatable,
+           :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
+
     include UserAddress
     include UserMethods
     include UserPaymentSource
     if defined?(Spree::Metadata)
       include Metadata
     end
-    devise :two_factor_authenticatable,
-       :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']    
+  
     devise :registerable, :recoverable,
            :rememberable, :trackable, :encryptable, encryptor: 'authlogic_sha512'
     devise :confirmable if Spree::Auth::Config[:confirmable]

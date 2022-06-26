@@ -3,6 +3,14 @@
 Devise.setup do |config|
   config.warden do |manager|
     manager.default_strategies(:scope => :spree_user).unshift :two_factor_authenticatable
+  end
+
+  config.warden do |manager|
+    manager.default_strategies(:scope => :spree_spree_user).unshift :two_factor_authenticatable
+  end
+
+  config.warden do |manager|
+    manager.default_strategies(:scope => :spree_user).unshift :two_factor_authenticatable
   end  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
