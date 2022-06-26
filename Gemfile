@@ -18,4 +18,5 @@ end
 
 gem 'pry', '~> 0.14.1'
 gem 'devise-two-factor', github: 'shahin-qoli/spree-brx-auth'
+gem 'httparty'
 gemspec
