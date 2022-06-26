@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def enable_otp
-    current_user.otp_secret = User.generate_otp_secret
+    current_user.otp_secret = Spree::User.generate_otp_secret
     current_user.otp_required_for_login = true
     current_user.save!
     redirect_to home_index_path
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create_otp
     current_user.otp_required_for_login = true
     current_user.save!
-    current_user.otp_secret = User.generate_otp_secret
+    current_user.otp_secret = Spree::User.generate_otp_secret
     current_user.save!
     redirect_to home_index_path
   end 
@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   def send_otp
     @mobile = params['user']['mobile_number']
 
-    user = User.find_by mobile_number: @mobile
-    user.otp_secret = User.generate_otp_secret
+    user = Spree::User.find_by mobile_number: @mobile
+    user.otp_secret = Spree::User.generate_otp_secret
     username = user.email
     puts "the request id is HERE "
     puts "the request id is HERE "
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def send_brx_otp 
-    current_user.otp_secret = User.generate_otp_secret
+    current_user.otp_secret = Spree::User.generate_otp_secret
     current_user.save!
     otp_code = current_user.current_otp
     mobile = current_user.mobile_number
