@@ -24,6 +24,7 @@ module Spree
     roles_table_name = Role.table_name
 
     scope :admin, -> { includes(:spree_roles).where("#{roles_table_name}.name" => "admin") }
+    
 
     def self.admin_created?
       User.admin.exists?

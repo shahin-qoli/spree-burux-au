@@ -31,7 +31,7 @@ Devise.setup do |config|
   # authenticating an user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
   # session. If you need permissions, you should implement that in a before filter.
-  # config.authentication_keys = [ :email ]
+  config.authentication_keys = [ :mobile_number ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true
@@ -144,7 +144,7 @@ Devise.setup do |config|
   config.reset_password_within = 6.hours
   config.sign_out_via = :get
 
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:mobile_number]
 
   # keep old config
   config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/

@@ -8,7 +8,7 @@
     <%= form_for Spree.user_class.new, :as => :spree_user, :url => spree.admin_create_new_session_path do |f| %>
       <div id="password-credentials">
         <div class="form-group">
-          <%= f.email_field :email, class: 'form-control', tabindex: 1, placeholder: Spree.t(:email) %>
+          <%= f.text_field :mobile_number, class: 'form-control', tabindex: 1, placeholder: Spree.t(:mobile_number) %>
         </div>
         <div class="form-group">
           <%= f.text_field :otp_attempt, :class => 'form-control', :tabindex => 2 %>
