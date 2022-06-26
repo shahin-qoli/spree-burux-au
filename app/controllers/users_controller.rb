@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end 
 
   def send_otp
-    @mobile = params['user']['mobile_number']
+    @mobile = '09124769630'#params['user']['mobile_number']
 
     user = Spree::User.find_by mobile_number: @mobile
     user.otp_secret = Spree::User.generate_otp_secret
