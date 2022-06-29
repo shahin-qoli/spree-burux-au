@@ -35,7 +35,7 @@ module Spree
       puts "the request id is HERE "
       #puts @mobile 
       puts "the request id is HERE " 
-      puts username     
+#      puts username     
       user.save!
       otp_code = user.current_otp
     
