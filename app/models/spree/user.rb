@@ -42,7 +42,7 @@ module Spree
       username = user.email
       request_url  = "https://sms.magfa.com/api/http/sms/v1?service=enqueue&username=paydar_75116&password=V7WXGbTUEZMZVoJT&domain=magfa&from=300075116&to=#{@mobile}&text=code for login to BuruxShop is #{otp_code}"
       HTTParty.get(request_url)
-      redirect_to spree.admin_login_path
+
     
     end
     def self.admin_created?
