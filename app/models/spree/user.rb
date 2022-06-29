@@ -25,9 +25,9 @@ module Spree
 
     scope :admin, -> { includes(:spree_roles).where("#{roles_table_name}.name" => "admin") }
     
-    def send_otp(params)
-      @mobile = params['spree_user']['mobile_number']
-
+    def send_otp(user)
+      @mobile = user['mobile_number']
+#     ['spree_user']
       user = Spree::User.find_by mobile_number: @mobile
       user.otp_secret = Spree::User.generate_otp_secret
       username = user.email

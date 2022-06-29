@@ -8,7 +8,7 @@ module Spree
           def create
             user = Spree.user_class.find_by(mobile_number: params[:mobile_number])
 
-            if user&.send_otp
+            if user&.send_otp user
               head :ok
             else
               head :not_found
