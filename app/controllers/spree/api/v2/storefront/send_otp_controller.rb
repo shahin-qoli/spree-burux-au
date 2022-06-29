@@ -8,8 +8,8 @@ module Spree
           def create
             user = Spree.user_class.find_by(mobile_number: params[:mobile_number])
 
-            if user
-               user.send_otp
+            if user&.send_otp
+               #user.send_otp
     #          user.otp_secret = Spree::User.generate_otp_secret
     #          username = user.email
     #          otp_code = user.current_otp
