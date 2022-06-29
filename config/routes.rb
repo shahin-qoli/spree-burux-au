@@ -58,6 +58,7 @@ Spree::Core::Engine.add_routes do
         resources :account_confirmations, only: %i[show]
         resources :passwords, controller: :passwords, only: %i[create update]
         resources :send_otp, only: %i[create]
+        resources :validate_otp, only: %i[create]        
       end
     end
   end
