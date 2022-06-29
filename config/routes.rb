@@ -55,7 +55,7 @@ Spree::Core::Engine.add_routes do
     namespace :v2 do
       namespace :storefront do
         resource :account, controller: :account, only: %i[show create update]
-        resources :account_confirmations, only: %i[show]
+        resources :account_confirmations22, only: %i[show]
         resources :passwords, controller: :passwords, only: %i[create update]
         resources :send_otp, only: %i[create]
       end
