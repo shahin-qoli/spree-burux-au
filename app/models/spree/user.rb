@@ -33,7 +33,7 @@ module Spree
       username = user.email
       puts "the request id is HERE "
       puts "the request id is HERE "
-      puts @mobile 
+      #puts @mobile 
       puts "the request id is HERE " 
       puts username     
       user.save!
