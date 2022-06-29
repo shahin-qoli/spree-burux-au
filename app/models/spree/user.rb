@@ -25,11 +25,29 @@ module Spree
 
     scope :admin, -> { includes(:spree_roles).where("#{roles_table_name}.name" => "admin") }
     
+    def send_otp
+      @mobile = params['spree_user']['mobile_number']
 
+      user = Spree::User.find_by mobile_number: @mobile
+      user.otp_secret = Spree::User.generate_otp_secret
+      username = user.email
+      puts "the request id is HERE "
+      puts "the request id is HERE "
+      puts @mobile 
+      puts "the request id is HERE " 
+      puts username     
+      user.save!
+      otp_code = user.current_otp
+    
+      username = user.email
+      request_url  = "https://sms.magfa.com/api/http/sms/v1?service=enqueue&username=paydar_75116&password=V7WXGbTUEZMZVoJT&domain=magfa&from=300075116&to=#{@mobile}&text=code for login to BuruxShop is #{otp_code}"
+      HTTParty.get(request_url)
+      redirect_to spree.admin_login_path
+    
+    end
     def self.admin_created?
       User.admin.exists?
     end
-
     def admin?
       has_spree_role?('admin')
     end
