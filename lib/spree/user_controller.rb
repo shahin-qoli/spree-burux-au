@@ -1,7 +1,7 @@
 require 'httparty'
 require 'json'
 
-class Spree::UsersController < StoreController
+class Spree::UsersController < ApplicationController
   def disable_otp
     current_user.otp_required_for_login = false
     current_user.save!
