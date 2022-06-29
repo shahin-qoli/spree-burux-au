@@ -50,14 +50,14 @@ Spree::Core::Engine.add_routes do
       end
     end
   end
-
+#controller: :send_otp,
   namespace :api, defaults: { format: 'json' } do
     namespace :v2 do
       namespace :storefront do
         resource :account, controller: :account, only: %i[show create update]
         resources :account_confirmations, only: %i[show]
         resources :passwords, controller: :passwords, only: %i[create update]
-        resources :send_otp, controller: :send_otp, only: %i[create]
+        resources :send_otp, only: %i[create]
       end
     end
   end
