@@ -26,7 +26,7 @@ module Spree
     scope :admin, -> { includes(:spree_roles).where("#{roles_table_name}.name" => "admin") }
     def validate_otp(code)
       @mobile = mobile_number
-      @code = 
+      @code = code
       user = Spree::User.find_by mobile_number: @mobile
       user.validate_and_consume_otp! @code
     end  
