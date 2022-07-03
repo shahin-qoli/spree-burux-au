@@ -2,16 +2,6 @@ require 'httparty'
 require 'json'
 
 class Spree::UsersController < ApplicationController
-  def validate_otp(code)
-      @mobile = mobile_number
-      @code = code
-      user = Spree::User.find_by mobile_number: @mobile
-      if user.validate_and_consume_otp! @code
-        false
-      else
-        false
-      end    
-  end  
   def disable_otp
     current_user.otp_required_for_login = false
     current_user.save!

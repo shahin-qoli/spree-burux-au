@@ -28,8 +28,11 @@ module Spree
       @mobile = mobile_number
       @code = code
       user = Spree::User.find_by mobile_number: @mobile
-      user.validate_and_consume_otp! @code
-      return true
+      if user.validate_and_consume_otp! @code
+        false
+      else
+        false
+      end  
     end  
     def send_otp
       @mobile = mobile_number
