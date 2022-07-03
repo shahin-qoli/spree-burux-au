@@ -7,7 +7,7 @@ class Spree::UsersController < ApplicationController
       @code = code
       user = Spree::User.find_by mobile_number: @mobile
       if user.validate_and_consume_otp! @code
-        true
+        false
       else
         false
       end    
