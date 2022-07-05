@@ -5,7 +5,7 @@
   <div id="new-customer" data-hook="login">
     <%= form_for resource, as: :spree_user, url: spree.registration_path, data: { turbo: false } do |f| %>
       <div data-hook="signup_inside_form">
-        <%= render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true } %>
+        <%= render partial: 'spree/shared/user_form2', locals: { f: f, remember_me_field: true } %>
         <div><%= f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn mb-5' %></div>
       </div>
     <% end %>

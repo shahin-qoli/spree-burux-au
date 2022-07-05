@@ -2,7 +2,7 @@ Spree::Core::Engine.add_routes do
   devise_for :spree_user,
             class_name: Spree.user_class.to_s,
             controllers: { sessions: 'spree/user_sessions',
-                              registrations: 'spree/user_registrations',
+                              registrations: 'registrations',
                               passwords: 'spree/user_passwords',
                               confirmations: 'spree/user_confirmations' },
             skip: [:unlocks, :omniauth_callbacks],
